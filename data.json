@@ -1,5 +1,17 @@
-{
-  "userNo": 30,
-  "user": "JakeyNoLs",
-  "message": "testing json reading in node"
-}
+[
+  {
+    "msgNum": 1,
+    "name": "twetwe",
+    "message": "wetwetwet"
+  },
+  {
+    "msgNum": 2,
+    "name": "qerwet",
+    "message": "qerqrqrqwrw"
+  },
+  {
+    "msgNum": 3,
+    "name": "twqwqer",
+    "message": "rweqwerqwer"
+  }
+]
