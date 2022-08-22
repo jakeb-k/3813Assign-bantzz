@@ -1,0 +1,28 @@
+
+<div id="container">
+    <h2> < Bantz Chatroom > </h2>
+    <h4>Previous Messages</h4>
+    <div id="messages">
+        
+    
+    <div class="receiveMsg">  
+    <p> What messages look like coming in</p>
+    </div>
+    <br>
+    <div class="sentMsg">
+        <p> What messages look like going out</p>
+    </div>
+    
+    </div>
+    <br>
+    <form method="post" action="/api/chatroom">
+        <div class="form-group">
+            <label for="exampleInputPassword1">New Message</label>
+            <input type="textarea" [(ngModel)]= "incoming" name="incoming" class="form-control"
+                id="exampleInputPassword1" placeholder="type messsage">
+            <button type="submit" (click)= "sendData()"> Submit </button>
+        </div>
+        
+    </form>
+</div>
+

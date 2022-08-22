@@ -1,6 +1,6 @@
 
 
-
+const cors = require('cors');
 var express = require('express');
 const fs = require('fs');
 
@@ -11,9 +11,9 @@ var msgCount =0;
 
 app.use(express.urlencoded({extended : true}));
 
-
+app.use(cors()); 
  
-app.use(express.static(__dirname + '/www'));
+app.use(express.static(__dirname + '/bantz-project/dist/bantz-project'));
 
 
 
@@ -24,11 +24,11 @@ let server = http.listen(3000, function() {
     console.log("Listening on host " +host + "Port:" + port);
 }); 
 
-app.get('/chatroom', function (req, res) {
+// app.get('localhost:3000/chatroom', function (req, res) {
     
-res.sendFile(__dirname + '/www/chatroom.html');
+// res.sendFile(__dirname + '/bantz-project/dist/bantz-project');
 
-});
+// });
 
 function jsonReader(filePath, cb){
     fs.readFile(filePath, 'utf-8', (err, fileData)=>{
@@ -47,9 +47,10 @@ function jsonReader(filePath, cb){
 
 
 
-app.post('/chatroom', function(req, res){
+app.post('/api/chatroom', function(req, res){
     msgCount += 1; 
-	var userResponse = req.body;
+	var userResponse = req;
+    console.log(userResponse.name); 
     var userMessage = { msgNum: msgCount, 
                         name: userResponse.name,
                         message: userResponse.message};
@@ -69,8 +70,6 @@ app.post('/chatroom', function(req, res){
         });
         }
     });
-    res.sendFile(__dirname + '/www/chatroom.html');
-
 });
 
 
