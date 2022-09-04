@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LoginService } from '../login.service';
 
 
 @Component({
@@ -10,33 +11,49 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    useremail = String("") ;  
+    username = String("") ;  
     userpassword = String("");
+
+    userDetails = {
+      "name": "",
+      "password": ""
+    }
   
-  
 
 
 
-  constructor( private route:ActivatedRoute, private router:Router, private  http : HttpClient) { }
+  constructor( private route:ActivatedRoute, private router:Router, private  http : HttpClient, private service: LoginService) { }
 
   ngOnInit(): void {
   }
  
   checkDetails() {
-    if(this.useremail != "" && this.userpassword != ""){
-      this.navby(); 
+    if(this.username != "" && this.userpassword != ""){
+      return true;
+
     } else {
       alert("Please enter a username and password"); 
+      return false; 
     }
-    return true; 
   }
   navby() {
-    this.router.navigate(['/chatroom']); 
+    this.router.navigate(['/account']); 
   }
 
   sendData(){
-  this.http.get('/api/chatroom').subscribe((response: any) => {
-   console.log('response is ', response);
-  }
-)}
+    if(this.checkDetails() == true) {
+        this.userDetails.name = this.username;
+        this.userDetails.password = this.userpassword; 
+        console.log(this.userDetails); 
+        this.service.sendData(this.userDetails).subscribe((response: any) => {
+        console.log('response is ', response);
+        if(response == true){
+          this.navby(); 
+          sessionStorage.setItem('username', this.userDetails.name); 
+        }
+      }, (error)=>{
+          console.log("Error is ", error)
+      }); 
+    }
+  } 
 }
