@@ -10,4 +10,7 @@ export class MessageService {
   sendData(jsonItems: any){
       return this.http.post('/api/message', jsonItems); 
   }
+  getMessages(){
+    return this.http.get('/api/messages'); 
+  }
 }

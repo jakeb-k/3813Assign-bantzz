@@ -1,4 +1,5 @@
 var fs =  require('fs');
+var collect = require('collect.js'); 
 var userMessages = []; 
 var msgCount =0; 
 
@@ -18,18 +19,23 @@ function jsonReader(filePath, cb){
 
 
 module.exports = function(req, res){
-    msgCount += 1; 
-	var userResponse = req.body;
-    console.log(userResponse.name); 
+    
+	var userResponse = req.body; 
     var userMessage = { msgNum: msgCount, 
                         name: userResponse.name,
                         message: userResponse.message};
     JSON.stringify(userMessage, null, 2)
-    userMessages.push(userMessage); 
-    console.log(userMessages); 
+     
+    //console.log(userMessages); 
                 
 
     jsonReader('./data/data.json', (err, data)=>{
+    userMessages = data; 
+    dataCount = collect(data)
+    msgCount = dataCount.count();  
+    userMessages.push(userMessage);
+    
+    console.log(userMessages); 
     if(err){
         console.log(err);
     } else {
