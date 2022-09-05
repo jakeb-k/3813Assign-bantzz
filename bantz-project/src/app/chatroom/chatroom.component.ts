@@ -25,7 +25,7 @@ export class ChatroomComponent implements OnInit {
   sendData(){
   this.fullMessage.name = sessionStorage.getItem('username')!;
   this.fullMessage.message = this.incoming;  
-  console.log(this.fullMessage);
+  
    var res = this.fullMessage; 
   this.service.sendData( this.fullMessage ).subscribe(res => {
    res = this.fullMessage; 
@@ -37,7 +37,7 @@ getData(){
   this.service.getMessages().subscribe(res => {
     this.messages = res; 
     this.messageArray = this.messages; 
-    console.log(this.messages); 
+    
   })
 }
 

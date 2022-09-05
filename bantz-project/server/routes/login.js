@@ -1,23 +1,45 @@
 var fs = require('fs');
 
+function jsonReader(filePath, cb){
+    fs.readFile(filePath, 'utf-8', (err, fileData)=>{
+        if(err){
+            return cb && cb(err);
+        }
+        try {
+            const object = JSON.parse(fileData);
+            return cb && cb(null, object);
+        } catch(err){
+            return cb && cb(err); 
+        }
+    });
+}
+
 module.exports =  function(req,res){
-    console.log(req.body);
-        /*fs.readFile('./data/users.json', function(err, data){
+        fs.readFile('./data/users.json', function(err, data){
         if (err) throw err;
         let userArray = JSON.parse(data);
         console.log(userArray); 
-    });*/ 
+    });
+    
     if(req.body.name != ""){
-        uArray = []; 
-        uArray.push(req.body); 
-        data = JSON.stringify(uArray); 
-        fs.writeFile('./data/users.json', data, function(err) {
-        if(err) throw err;
-        let userArray = JSON.parse(data);
-        console.log(userArray); 
+        jsonReader('./data/users.json', (err, data)=>{
+        user = req.body; 
+        users = data; 
+        users.push(user); 
+        console.log(users); 
+        if(err){
+            console.log(err);
+        } else {
+            fs.writeFile('./data/users.json', JSON.stringify(users, null, 2), err => {
+                if(err){
+                    console.log(err);
+                }
+            });
+            }
+        });
         res.send(true); 
-    }); 
-       
+        
+        
     }else {
         alert("Enter a username to login"); 
     }

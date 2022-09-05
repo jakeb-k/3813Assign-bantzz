@@ -1,7 +1,7 @@
 var fs =  require('fs');
 var collect = require('collect.js'); 
 var userMessages = []; 
-var msgCount =0; 
+var msgCount;
 
 function jsonReader(filePath, cb){
     fs.readFile(filePath, 'utf-8', (err, fileData)=>{

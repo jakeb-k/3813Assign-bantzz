@@ -4,6 +4,9 @@
         < Bantz Account >
     </h2>
     <h4> Welcome Back {{name}} </h4>
+    <div *ngIf= "isSuper">
+        <p><a routerLink="/admin">Admin Options</a></p>
+    </div>
     <button type="logout" (click)= "navhome()">Logout</button>
     <h4> Chatrooms </h4>
     <ul>
@@ -12,4 +15,4 @@
         <li>Chatroom 3</li>
     </ul>
     <br>
-</div>
+</div> 

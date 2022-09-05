@@ -28,6 +28,7 @@ app.use(express.static('C:/Users/jknow/OneDrive/Desktop/Year_4/TRI_2/3813ICT-Sof
 app.post('/api/login', require('./routes/login'));
 app.post('/api/message', require('./routes/message')); 
 app.get('/api/messages', require('./routes/getMessages')); 
+app.get('/api/users', require('./routes/getUsers')); 
 
 
 /*

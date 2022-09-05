@@ -46,7 +46,6 @@ export class HomeComponent implements OnInit {
         this.userDetails.password = this.userpassword; 
         console.log(this.userDetails); 
         this.service.sendData(this.userDetails).subscribe((response: any) => {
-        console.log('response is ', response);
         if(response == true){
           this.navby(); 
           sessionStorage.setItem('username', this.userDetails.name); 

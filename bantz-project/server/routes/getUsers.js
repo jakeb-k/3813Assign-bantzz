@@ -17,7 +17,7 @@ function jsonReader(filePath, cb){
 
 module.exports = function(req, res){          
 
-    jsonReader('./data/data.json', (err, data)=>{
+    jsonReader('./data/users.json', (err, data)=>{
     if(err){
         console.log(err);
     } else {

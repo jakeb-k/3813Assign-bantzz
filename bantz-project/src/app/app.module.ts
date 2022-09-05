@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { ChatroomComponent } from './chatroom/chatroom.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 
@@ -16,6 +17,7 @@ import { AccountComponent } from './account/account.component';
     ChatroomComponent,
     HomeComponent,
     AccountComponent,
+    AdminComponent,
     
   ],
   imports: [

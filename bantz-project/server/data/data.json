@@ -1,72 +1,35 @@
 [
   {
-    "msgNum": 0,
-    "name": "jakebk",
-    "message": "new message"
-  },
-  {
-    "msgNum": 0,
-    "name": "jakebk",
-    "message": "hello jakeb "
-  },
-  {
-    "msgNum": 1,
-    "name": "jakebk",
-    "message": "hello other jakeb"
-  },
-  {
-    "msgNum": 2,
-    "name": "jakebk",
-    "message": "how are you"
+    "name": "jakey",
+    "message": "pls"
   },
   {
     "msgNum": 3,
-    "name": "jakebk",
-    "message": "good thanks"
+    "name": "jakey",
+    "message": "dont "
   },
   {
     "msgNum": 4,
-    "name": "user1",
-    "message": "this is the test"
+    "name": "jakey",
+    "message": "do "
   },
   {
     "msgNum": 5,
-    "name": "user1",
-    "message": "wow i actually have a chat app "
+    "name": "jakey",
+    "message": "this "
   },
   {
-    "msgNum": 6,
-    "name": "user1",
-    "message": "so kewl"
+    "name": "superuser",
+    "message": "its aight i wont homie"
   },
   {
-    "msgNum": 0,
-    "name": "jakebknowles",
-    "message": "big dog in the house"
+    "msgNum": 4,
+    "name": "superuser",
+    "message": "chill"
   },
   {
-    "msgNum": 8,
-    "name": "jakebknowles",
-    "message": "ayo"
-  },
-  {
-    "msgNum": 0,
-    "name": "jakebk",
-    "message": "pls wprl"
-  },
-  {
-    "msgNum": 10,
-    "name": "jakebk",
-    "message": "its working"
-  },
-  {
-    "msgNum": 11,
-    "name": "jakebk",
-    "message": "ayop"
-  },
-  {
-    "msgNum": 12,
-    "name": "jakebk",
-    "message": "too ez"
+    "msgNum": 5,
+    "name": "superuser",
+    "message": "big chill"
   }
 ]

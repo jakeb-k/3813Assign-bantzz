@@ -1,0 +1,30 @@
+<div id="container">
+    <h2>
+        < Bantz Admin Options >
+    </h2>
+    <p><a routerLink="/account"> Back to Account Page</a></p>
+    <h3> Create a Group </h3>
+    <form>
+        <h4>Users </h4>
+        <label for="groupName">Group Name</label>
+        <input type="text" id="groupName" /> 
+        <div *ngFor= "let user of userArray" id="userBox">
+            <div class="groupForm">
+                <div class="row">
+                    <input type="checkbox" id="user" name="{{user.name}}" value="{{user.name}}" />
+                    <label for="user">{{user.name}} </label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="admin" name="admin" value="true" />
+                    <label for="admin">Is Admin?</label>
+                </div>
+                <div class="row">
+                    <input type="checkbox" id="assis" name="assis" value="true" />
+                    <label for="assis">Is Assistant?</label>
+                </div>
+            </div>
+        </div>
+        <button type="submit">Create Group!</button>
+    </form>
+    <br>
+</div>
