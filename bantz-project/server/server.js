@@ -29,7 +29,7 @@ app.post('/api/login', require('./routes/login'));
 app.post('/api/message', require('./routes/message')); 
 app.get('/api/messages', require('./routes/getMessages')); 
 app.get('/api/users', require('./routes/getUsers')); 
-
+app.post('/api/users', require('./routes/addUser')); 
 
 /*
 app.post('/chatroom', function(req,res){

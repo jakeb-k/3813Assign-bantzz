@@ -2,7 +2,7 @@
     <h2>
         < Bantz Admin Options >
     </h2>
-    <p><a routerLink="/account"> Back to Account Page</a></p>
+    <p><a routerLink="/account"> superuser </a></p>
     <h3> Create a Group </h3>
     <form>
         <h4>Users </h4>
@@ -25,6 +25,21 @@
             </div>
         </div>
         <button type="submit">Create Group!</button>
+    </form>
+    <h4>Create a User</h4>
+    <form method="post" action="/api/users">
+        <div class="form-group">
+            <label for="inUsername">Username</label>
+            <input type="text" [(ngModel)]= "username" name="username" class="form-control" id="inUsername"
+                placeholder="Create Username">
+        </div>
+        <div class="form-group">
+            <label for="inPassword">Password</label>
+            <input type="password" [(ngModel)]= "userpassword" name="password" class="form-control"
+                id="inPassword" placeholder="Create Password">
+        </div>
+        <button id="submit" type="submit" (click)= "sendData()">
+            Submit</button>
     </form>
     <br>
 </div>

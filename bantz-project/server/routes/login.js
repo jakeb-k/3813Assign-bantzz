@@ -1,5 +1,6 @@
-var fs = require('fs');
 
+var fs = require('fs');
+let userExists = false; 
 function jsonReader(filePath, cb){
     fs.readFile(filePath, 'utf-8', (err, fileData)=>{
         if(err){
@@ -18,31 +19,26 @@ module.exports =  function(req,res){
         fs.readFile('./data/users.json', function(err, data){
         if (err) throw err;
         let userArray = JSON.parse(data);
-        console.log(userArray); 
+        //console.log(userArray); 
     });
-    
-    if(req.body.name != ""){
+    console.log(req.body); 
         jsonReader('./data/users.json', (err, data)=>{
-        user = req.body; 
-        users = data; 
-        users.push(user); 
-        console.log(users); 
-        if(err){
-            console.log(err);
-        } else {
-            fs.writeFile('./data/users.json', JSON.stringify(users, null, 2), err => {
-                if(err){
-                    console.log(err);
-                }
-            });
+        for(i in data){
+            if(req.body.name === data[i].name && req.body.password === data[i].password) {
+                console.log(data[i].name + data[i].password); 
+                userExists = true; 
+                break; 
+            } else {
+                userExists = false; 
             }
-        });
-        res.send(true); 
-        
-        
-    }else {
-        alert("Enter a username to login"); 
+        }console.log(userExists); 
+        if(userExists === false) {
+            res.send(false);
+            } else {
+               res.send(true); 
+            }
     }
+    );
    
     if(!req.body) {
         console.log("is hitting server file"); 

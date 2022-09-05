@@ -14,5 +14,17 @@
   {
     "name": "jknow30",
     "password": "t"
+  },
+  {
+    "name": "superuser",
+    "password": "t"
+  },
+  {
+    "name": "yaboy",
+    "password": "t"
+  },
+  {
+    "name": "next",
+    "password": "t"
   }
 ]

@@ -10,4 +10,7 @@ export class UsersService {
   getUsers(){
     return this.http.get('/api/users'); 
   }
+  makeUser(jsonItems: any){
+    return this.http.post('/api/users', jsonItems); 
+  }
 }

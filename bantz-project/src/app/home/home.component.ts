@@ -49,6 +49,8 @@ export class HomeComponent implements OnInit {
         if(response == true){
           this.navby(); 
           sessionStorage.setItem('username', this.userDetails.name); 
+        } else {
+          alert("enter valid details"); 
         }
       }, (error)=>{
           console.log("Error is ", error)
