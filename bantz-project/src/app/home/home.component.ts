@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit {
           this.navby(); 
           sessionStorage.setItem('username', this.userDetails.name); 
         } else {
-          alert("enter valid details"); 
+          alert("Enter valid username and password!"); 
         }
       }, (error)=>{
           console.log("Error is ", error)

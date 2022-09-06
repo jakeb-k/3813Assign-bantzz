@@ -9,12 +9,24 @@ import { UsersService } from '../users.service';
 export class AdminComponent implements OnInit {
   username = String("");
   userpassword = String(""); 
-   userDetails = {
+  
+  userDetails = {
       "name": "",
       "password": ""
     }
   users = {};
-  userArray: any = [];  
+  userArray: any = []; 
+
+  group = {
+    "name": "",
+    "users": "",
+    "admins": "",
+    "assis": ""
+  }
+  newUsers = String(""); 
+  newAdmins = String("");
+  newAssis = String(""); 
+  groupName = String("");  
   constructor(private service: UsersService) { }
 
   ngOnInit(): void {
@@ -55,4 +67,24 @@ sendData(){
       }); 
     }
   }
+
+  makeGroup(){
+    if(this.newUsers == ""){
+      alert("Enter at least one user"); 
+    } else {
+      this.group.name = this.groupName; 
+      this.group.users = this.newUsers; 
+      this.group.admins = this.newAdmins;
+      this.group.assis = this.newAssis; 
+      console.log(this.group); 
+      this.service.makeGroup(this.group).subscribe((response:any)=>{
+        alert("Group: " + this.groupName + " has been made"); 
+        this.newUsers = "";
+        this.groupName = "";
+        this.newAdmins = ""; 
+        this.newAssis = "";  
+      }); 
+    }
+  }
+
 }

@@ -4,27 +4,24 @@
     </h2>
     <p><a routerLink="/account"> superuser </a></p>
     <h3> Create a Group </h3>
-    <form>
+    <form method="post" action="api/makeGroup">
         <h4>Users </h4>
         <label for="groupName">Group Name</label>
-        <input type="text" id="groupName" /> 
-        <div *ngFor= "let user of userArray" id="userBox">
-            <div class="groupForm">
-                <div class="row">
-                    <input type="checkbox" id="user" name="{{user.name}}" value="{{user.name}}" />
-                    <label for="user">{{user.name}} </label>
-                </div>
-                <div class="row">
-                    <input type="checkbox" id="admin" name="admin" value="true" />
-                    <label for="admin">Is Admin?</label>
-                </div>
-                <div class="row">
-                    <input type="checkbox" id="assis" name="assis" value="true" />
-                    <label for="assis">Is Assistant?</label>
-                </div>
-            </div>
-        </div>
-        <button type="submit">Create Group!</button>
+        <input type="text" id="groupName" [(ngModel)] = "groupName"/> 
+
+        <textarea id="newUsersText" [(ngModel)]= "newUsers" placeholder="Enter Users followed by a comma, no spaces e.g. user1,user2,user3">
+
+        </textarea>
+        
+        <textarea id="newUsersText" [(ngModel)]= "newAdmins"
+            placeholder="Enter Admins followed by a comma, no spaces e.g. admin1,admin2,admin3">
+        
+        </textarea>
+        <textarea id="newUsersText" [(ngModel)]= "newAssis"
+                    placeholder="Enter Assis followed by a comma, no spaces e.g.assis1,assis2,assis3">
+                
+        </textarea>
+        <button type="submit" (click)= "makeGroup()">Create Group!</button>
     </form>
     <h4>Create a User</h4>
     <form method="post" action="/api/users">

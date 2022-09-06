@@ -7,10 +7,14 @@ import { Injectable } from '@angular/core';
 export class UsersService {
 
   constructor(private http: HttpClient) { }
+  
   getUsers(){
     return this.http.get('/api/users'); 
   }
   makeUser(jsonItems: any){
     return this.http.post('/api/users', jsonItems); 
+  }
+  makeGroup(jsonItems:any){
+    return this.http.post('/api/makeGroup', jsonItems); 
   }
 }

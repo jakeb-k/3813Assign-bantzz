@@ -17,6 +17,7 @@ export class ChatroomComponent implements OnInit {
   }
   messages = {}; 
   messageArray: any = []; 
+  
   constructor(private  http : HttpClient, private service: MessageService) { }
 
   ngOnInit(): void {
@@ -37,7 +38,6 @@ getData(){
   this.service.getMessages().subscribe(res => {
     this.messages = res; 
     this.messageArray = this.messages; 
-    
   })
 }
 

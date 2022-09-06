@@ -1,35 +1,21 @@
 [
   {
-    "name": "jakey",
-    "message": "pls"
-  },
-  {
-    "msgNum": 3,
-    "name": "jakey",
-    "message": "dont "
-  },
-  {
-    "msgNum": 4,
-    "name": "jakey",
-    "message": "do "
-  },
-  {
-    "msgNum": 5,
-    "name": "jakey",
-    "message": "this "
-  },
-  {
+    "msgNum": 16,
     "name": "superuser",
-    "message": "its aight i wont homie"
+    "message": "are thou working"
   },
   {
-    "msgNum": 4,
+    "msgNum": 0,
     "name": "superuser",
-    "message": "chill"
+    "message": "indeed"
   },
   {
-    "msgNum": 5,
+    "msgNum": 1,
     "name": "superuser",
-    "message": "big chill"
+    "message": "it is"
+  },
+  {
+    "name": "jakebk",
+    "message": "tis working indeed"
   }
 ]

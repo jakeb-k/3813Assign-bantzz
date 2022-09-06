@@ -39,3 +39,8 @@ button {
     flex-direction: row;
     justify-content: space-between;
 }
+textarea{
+    margin-top:10px; 
+    width:350px;  
+    font-family: "Comic Sans MS";
+}

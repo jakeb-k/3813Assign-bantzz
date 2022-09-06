@@ -12,8 +12,8 @@ var http = require('http').Server(app);
 let server = http.listen(3000, function() {
     let host = server.address().address;
     let port = server.address().port;
-    console.log("Chatroom Server is Live!");
-    console.log("Listening on host " +host + "Port:" + port);
+    console.log("Bantz Server is Live!");
+    console.log("Listening on Port:" + port);
 }); 
 
 app.use(express.urlencoded({extended : true}));
@@ -30,26 +30,5 @@ app.post('/api/message', require('./routes/message'));
 app.get('/api/messages', require('./routes/getMessages')); 
 app.get('/api/users', require('./routes/getUsers')); 
 app.post('/api/users', require('./routes/addUser')); 
-
-/*
-app.post('/chatroom', function(req,res){
-    if (!req.body){
-        console.log('body is empty'); 
-        return res.sendStatus(400);
-    }
-    var user = {}
-    user.name = req.body.name;
-    user.message = req.body.message;
-    console.log(user); 
-    jsonReader('./data.json', (err, data)=>{
-    if(err){
-        console.log(err);
-    } else {
-        fs.appendFile('./data.json', JSON.stringify(user, null, 2), err => {
-            if(err){
-                console.log(err);
-            }
-        });
-        }
-    }); 
-});*/ 
+app.post('/api/makeGroup', require('./routes/addGroup')); 
+app.post('/api/groups', require('./routes/getGroup')); 

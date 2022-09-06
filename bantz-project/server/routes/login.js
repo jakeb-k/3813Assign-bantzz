@@ -16,22 +16,17 @@ function jsonReader(filePath, cb){
 }
 
 module.exports =  function(req,res){
-        fs.readFile('./data/users.json', function(err, data){
-        if (err) throw err;
-        let userArray = JSON.parse(data);
-        //console.log(userArray); 
-    });
-    console.log(req.body); 
+    //console.log(req.body); 
         jsonReader('./data/users.json', (err, data)=>{
         for(i in data){
             if(req.body.name === data[i].name && req.body.password === data[i].password) {
-                console.log(data[i].name + data[i].password); 
+                //console.log(data[i].name + data[i].password); 
                 userExists = true; 
                 break; 
             } else {
                 userExists = false; 
             }
-        }console.log(userExists); 
+        }//console.log(userExists); 
         if(userExists === false) {
             res.send(false);
             } else {
