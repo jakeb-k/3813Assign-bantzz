@@ -38,5 +38,15 @@
         <button id="submit" type="submit" (click)= "sendData()">
             Submit</button>
     </form>
+    <h4>Delete a User</h4>
+    <form method="post" action="/api/deleteUser">
+        <div class="form-group">
+            <label for="inUsername">Name</label>
+            <input type="text" [(ngModel)]= "dUsername" name="username" class="form-control" id="inUsername"
+                placeholder="User to be Deleted">
+        </div>
+        <button id="submit" type="submit" (click)= "deleteUser()">
+            Remove User</button>
+    </form>
     <br>
 </div>

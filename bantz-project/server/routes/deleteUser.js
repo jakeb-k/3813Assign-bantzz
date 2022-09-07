@@ -1,6 +1,6 @@
 var fs = require('fs');
 
-alreadyUsed = false; 
+userExists = false; 
 
 function jsonReader(filePath, cb){
     fs.readFile(filePath, 'utf-8', (err, fileData)=>{
@@ -19,24 +19,26 @@ function jsonReader(filePath, cb){
 module.exports =  function(req,res){
     if(req.body.name != ""){
         jsonReader('./data/users.json', (err, data)=>{
-        user = req.body; 
+        user = req.body;
+        console.log(user);  
         users = data;
         for(i in data){
-            if(req.body.name === data[i].name) {
-                console.log(data[i].name); 
-                alreadyUsed = true; 
+            if(req.body.dUser === data[i].name) {
+                console.log(data[i].name);
+                userExists = true; 
+                data.splice(i,1);  
                 break; 
             } else {
-                alreadyUsed = false; 
+                userExists = false; 
             }
         }
-        if(alreadyUsed == false){
-            users.push(user);
+        if(userExists == true){
+            //users.push(user);
             res.send(true);  
         } else {
             res.send(false);
         }
-         
+          
         
         if(err){
             console.log(err);

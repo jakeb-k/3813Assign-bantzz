@@ -9,7 +9,6 @@ import { UsersService } from '../users.service';
 export class AdminComponent implements OnInit {
   username = String("");
   userpassword = String(""); 
-  
   userDetails = {
       "name": "",
       "password": ""
@@ -26,7 +25,12 @@ export class AdminComponent implements OnInit {
   newUsers = String(""); 
   newAdmins = String("");
   newAssis = String(""); 
-  groupName = String("");  
+  groupName = String("");
+  
+  dUsername = String("");
+  userDelete = {
+    "dUser": ""
+  }
   constructor(private service: UsersService) { }
 
   ngOnInit(): void {
@@ -60,7 +64,9 @@ sendData(){
           this.username = "";
           this.userpassword =""; 
         } else {
-          alert("enter valid details"); 
+          alert("That username is taken"); 
+          this.username = "";
+          this.userpassword =""; 
         }
       }, (error)=>{
           console.log("Error is ", error)
@@ -85,6 +91,23 @@ sendData(){
         this.newAssis = "";  
       }); 
     }
+  }
+  deleteUser(){
+    if(this.dUsername == ""){
+      alert("Enter a user to be deleted!");  
+    } else {
+      this.userDelete.dUser = this.dUsername;
+       this.service.deleteUser(this.userDelete).subscribe((response:any)=>{
+        if(response == true){
+          alert("User has been deleted");
+          this.dUsername == "";
+        } else {
+          alert("User does not exist");
+          this.dUsername == ""; 
+        }
+       });
+    }
+    
   }
 
 }

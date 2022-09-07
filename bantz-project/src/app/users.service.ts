@@ -17,4 +17,7 @@ export class UsersService {
   makeGroup(jsonItems:any){
     return this.http.post('/api/makeGroup', jsonItems); 
   }
+  deleteUser(jsonItems: any){
+    return this.http.post('/api/deleteUser', jsonItems); 
+  }
 }

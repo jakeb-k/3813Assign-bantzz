@@ -1,6 +1,6 @@
 [
   {
-    "name": "group",
+    "name": "group1",
     "users": [
       "superuser",
       "user2",
@@ -32,7 +32,7 @@
   {
     "name": "anothergroup",
     "users": [
-      "t",
+      "jakebk",
       "t",
       "t",
       "t"

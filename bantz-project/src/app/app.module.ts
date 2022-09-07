@@ -8,6 +8,7 @@ import { ChatroomComponent } from './chatroom/chatroom.component';
 import { HomeComponent } from './home/home.component';
 import { AccountComponent } from './account/account.component';
 import { AdminComponent } from './admin/admin.component';
+import { GroupComponent } from './group/group.component';
 
 
 
@@ -17,7 +18,8 @@ import { AdminComponent } from './admin/admin.component';
     ChatroomComponent,
     HomeComponent,
     AccountComponent,
-    AdminComponent
+    AdminComponent,
+    GroupComponent
     
   ],
   imports: [

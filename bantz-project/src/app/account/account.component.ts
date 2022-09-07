@@ -10,6 +10,8 @@ import { GroupService } from './group.service';
 export class AccountComponent implements OnInit {
   name = sessionStorage.getItem('username'); 
   isSuper = false; 
+  groupNames = []; 
+  currentName = String(""); 
   constructor(private router: Router, private service: GroupService) { }
   
   ngOnInit(): void {
@@ -30,9 +32,15 @@ export class AccountComponent implements OnInit {
   }
   getGroups(){
     this.service.getGroupData().subscribe((response:any)=>{
-        console.log(response);
-        //alert("Group: " + response[0].name);
+        this.groupNames = response.groupNames;
+        console.log(this.groupNames);  
+        //console.log(this.groupNames); 
       }); 
+  }
+  setGroupName(){
+    
+    sessionStorage.setItem('group',this.currentName );
+    console.log(this.currentName); 
   }
 
 }

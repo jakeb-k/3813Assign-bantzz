@@ -8,11 +8,9 @@
         <p><a routerLink="/admin">Admin Options</a></p>
     </div>
     <button type="logout" (click)= "navhome()">Logout</button>
-    <h4> Chatrooms </h4>
-    <ul>
-        <li><a routerLink="/chatroom"> Chatroom 1 </a> </li>
-        <li>Chatroom 2</li>
-        <li>Chatroom 3</li>
+    <h4> Groups </h4>
+    <ul *ngFor= "let name of groupNames; let i = index;">
+        <li><a routerLink="/group" (click)= "setGroupName()"> {{name}} </a></li>
     </ul>
     <br>
 </div> 

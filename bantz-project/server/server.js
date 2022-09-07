@@ -29,6 +29,7 @@ app.post('/api/login', require('./routes/login'));
 app.post('/api/message', require('./routes/message')); 
 app.get('/api/messages', require('./routes/getMessages')); 
 app.get('/api/users', require('./routes/getUsers')); 
+app.post('/api/deleteUser', require('./routes/deleteUser'));
 app.post('/api/users', require('./routes/addUser')); 
 app.post('/api/makeGroup', require('./routes/addGroup')); 
 app.post('/api/groups', require('./routes/getGroup')); 
