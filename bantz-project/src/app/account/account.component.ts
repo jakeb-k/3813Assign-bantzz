@@ -8,7 +8,7 @@ import { GroupService } from './group.service';
   styleUrls: ['./account.component.css']
 })
 export class AccountComponent implements OnInit {
-  name = sessionStorage.getItem('username'); 
+  name = localStorage.getItem('username'); 
   isSuper = false; 
   groupNames = []; 
   currentName = String(""); 
@@ -20,7 +20,7 @@ export class AccountComponent implements OnInit {
   }
   
   navhome() {
-    sessionStorage.clear(); 
+    localStorage.clear(); 
 
     this.router.navigate(['//']); 
   }
@@ -39,7 +39,7 @@ export class AccountComponent implements OnInit {
   }
   setGroupName(){
     
-    sessionStorage.setItem('group',this.currentName );
+    localStorage.setItem('group',this.currentName );
     console.log(this.currentName); 
   }
 

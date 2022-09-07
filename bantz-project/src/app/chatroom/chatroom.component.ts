@@ -9,7 +9,7 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
-  username = sessionStorage.getItem('username'); 
+  username = localStorage.getItem('username'); 
   incoming = String("");
   fullMessage = {
     "name":"",
@@ -24,7 +24,7 @@ export class ChatroomComponent implements OnInit {
     this.getData(); 
   }
   sendData(){
-  this.fullMessage.name = sessionStorage.getItem('username')!;
+  this.fullMessage.name = localStorage.getItem('username')!;
   this.fullMessage.message = this.incoming;  
   
    var res = this.fullMessage; 

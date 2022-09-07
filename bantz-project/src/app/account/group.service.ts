@@ -9,7 +9,7 @@ export class GroupService {
   constructor(private http: HttpClient) { }
 
   getGroupData(){
-    var username = sessionStorage.getItem('username');
+    var username = localStorage.getItem('username');
     var nameSend = {
     "username":username 
   }

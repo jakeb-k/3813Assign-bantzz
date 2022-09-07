@@ -48,7 +48,7 @@ export class HomeComponent implements OnInit {
         this.service.sendData(this.userDetails).subscribe((response: any) => {
         if(response == true){
           this.navby(); 
-          sessionStorage.setItem('username', this.userDetails.name); 
+          localStorage.setItem('username', this.userDetails.name); 
         } else {
           alert("Enter valid username and password!"); 
         }
