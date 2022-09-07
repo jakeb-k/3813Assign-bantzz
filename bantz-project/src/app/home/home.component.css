@@ -1,10 +1,11 @@
 #container {
     padding:50px; 
-    background: #66ff33; 
-    box-shadow: 5px 10px 50px gray ;
-    width:500px; 
+    background: #5afb24; 
+    box-shadow: 0px 0px 40px 40px #66ff33;
+    border:1px solid black; 
+    width:600px; 
     margin:auto; 
-    border-radius: 10px;
+    border-radius: 30px;
 }
 h1 {
     text-align: center;
@@ -20,4 +21,12 @@ p, label {
 button {
     margin-top:25px; 
     margin-left: 40%;
+}
+html {
+    background: grey;
+    padding: 100px;
+}
+
+body {
+    background: grey;
 }

@@ -1,10 +1,11 @@
 #container {
     padding: 50px;
-    background: #66ff33;
-    box-shadow: 5px 10px 50px gray;
-    width: 500px;
+    background: #5afb24;
+    box-shadow: 0px 0px 40px 40px #66ff33;
+    border: 1px solid black;
+    width: 600px;
     margin: auto;
-    height: auto;
+    border-radius: 30px;
 }
 
 h2 {
@@ -43,4 +44,12 @@ textarea{
     margin-top:10px; 
     width:350px;  
     font-family: "Comic Sans MS";
+}
+html {
+    background: grey;
+    padding: 100px;
+}
+
+body {
+    background: grey;
 }
