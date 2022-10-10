@@ -1,0 +1,25 @@
+
+<div id="container">
+    <h2> < Bantz Chatroom > </h2>
+    <p><a routerLink="/account"> {{username}}</a></p>
+    <h4>Previous Messages</h4>
+    
+    <div id="messageContainer"> 
+    <div *ngFor= "let message of messageArray" id="message">
+      <b>{{message.name}} </b> : {{message.message}}
+    
+    </div>
+    </div>
+    
+    <br>
+    <form method="post" action="/api/chatroom">
+        <div class="form-group">
+            <label for="exampleInputPassword1">New Message</label>
+            <input type="textarea" [(ngModel)]= "incoming" name="incoming" class="form-control"
+                id="exampleInputPassword1" placeholder="type messsage">
+            <button type="submit" (click)= "sendData()"> Submit </button>
+        </div>
+        
+    </form>
+</div>
+

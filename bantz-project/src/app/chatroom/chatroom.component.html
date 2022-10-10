@@ -5,19 +5,19 @@
     <h4>Previous Messages</h4>
     
     <div id="messageContainer"> 
-    <div *ngFor= "let message of messageArray" id="message">
-      <b>{{message.name}} </b> : {{message.message}}
-    
-    </div>
+    <ul>
+        <li id="message" *ngFor="let m of messageArray">{{m.msg}} </li>
+        <li id="message" *ngFor="let m of messages">{{m}} </li>
+    </ul>
     </div>
     
     <br>
     <form method="post" action="/api/chatroom">
         <div class="form-group">
             <label for="exampleInputPassword1">New Message</label>
-            <input type="textarea" [(ngModel)]= "incoming" name="incoming" class="form-control"
+            <input type="textarea" [(ngModel)]= "messagecontent" name="messagecontent" class="form-control"
                 id="exampleInputPassword1" placeholder="type messsage">
-            <button type="submit" (click)= "sendData()"> Submit </button>
+            <button type="submit" (click)= "chat()"> Submit </button>
         </div>
         
     </form>

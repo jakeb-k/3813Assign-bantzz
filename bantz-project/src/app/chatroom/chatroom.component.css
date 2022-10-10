@@ -38,6 +38,7 @@ button {
 }
 #message {
     margin:10px;   
+    list-style: none;
 }
 html {
     background: grey;

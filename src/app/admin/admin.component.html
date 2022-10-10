@@ -1,0 +1,52 @@
+<div id="container">
+    <h2>
+        < Bantz Admin Options >
+    </h2>
+    <p><a routerLink="/account"> superuser </a></p>
+    <h3> Create a Group </h3>
+    <form method="post" action="api/makeGroup">
+        <h4>Users </h4>
+        <label for="groupName">Group Name</label>
+        <input type="text" id="groupName" [(ngModel)] = "groupName"/> 
+
+        <textarea id="newUsersText" [(ngModel)]= "newUsers" placeholder="Enter Users followed by a comma, no spaces e.g. user1,user2,user3">
+
+        </textarea>
+        
+        <textarea id="newUsersText" [(ngModel)]= "newAdmins"
+            placeholder="Enter Admins followed by a comma, no spaces e.g. admin1,admin2,admin3">
+        
+        </textarea>
+        <textarea id="newUsersText" [(ngModel)]= "newAssis"
+                    placeholder="Enter Assis followed by a comma, no spaces e.g.assis1,assis2,assis3">
+                
+        </textarea>
+        <button type="submit" (click)= "makeGroup()">Create Group!</button>
+    </form>
+    <h4>Create a User</h4>
+    <form method="post" action="/api/users">
+        <div class="form-group">
+            <label for="inUsername">Username</label>
+            <input type="text" [(ngModel)]= "username" name="username" class="form-control" id="inUsername"
+                placeholder="Create Username">
+        </div>
+        <div class="form-group">
+            <label for="inPassword">Password</label>
+            <input type="password" [(ngModel)]= "userpassword" name="password" class="form-control"
+                id="inPassword" placeholder="Create Password">
+        </div>
+        <button id="submit" type="submit" (click)= "sendData()">
+            Submit</button>
+    </form>
+    <h4>Delete a User</h4>
+    <form method="post" action="/api/deleteUser">
+        <div class="form-group">
+            <label for="inUsername">Name</label>
+            <input type="text" [(ngModel)]= "dUsername" name="username" class="form-control" id="inUsername"
+                placeholder="User to be Deleted">
+        </div>
+        <button id="submit" type="submit" (click)= "deleteUser()">
+            Remove User</button>
+    </form>
+    <br>
+</div>

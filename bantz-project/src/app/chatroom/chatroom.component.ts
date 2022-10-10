@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from  '@angular/common/http';
 import { MessageService } from '../message.service';
 import { NgModule } from '@angular/core';
+import { SocketService } from '../socket.service';
 
 @Component({
   selector: 'app-chatroom',
@@ -9,21 +10,57 @@ import { NgModule } from '@angular/core';
   styleUrls: ['./chatroom.component.css']
 })
 export class ChatroomComponent implements OnInit {
+  messagers={"msg": ""}; 
+
   username = localStorage.getItem('username'); 
   incoming = String("");
   fullMessage = {
     "name":"",
     "message": ""
   }
-  messages = {}; 
-  messageArray: any = []; 
+  messagecontent:string = ""; 
+  messages:string[]=[]; 
+  ioConnection:any; 
+  messageArray:any = {};  
+  oldMsgs:any []; 
+
   
-  constructor(private  http : HttpClient, private service: MessageService) { }
+  constructor(private service: MessageService, private socketService: SocketService) { }
 
   ngOnInit(): void {
-    this.getData(); 
+    this.initIoConnection();
+    this.getData();  
+
   }
+  private initIoConnection(){
+    const usedName = String(this.username); 
+    this.socketService.initSocket(); 
+     
+    this.ioConnection = this.socketService.getMessage().subscribe((message:string)=>{
+      this.messages.push(usedName + " : " + message);
+      
+    }); 
+    
+  }
+
+  public chat(){
+    if(this.messagecontent){
+      const usedName = String(this.username); 
+      this.socketService.send(this.messagecontent);
+      this.messagers.msg = usedName + " : "+ this.messagecontent;
+      this.service.sendData(this.messagers).subscribe(res => {
+      res = this.messagecontent; 
+      }); 
+      this.messagecontent = null; 
+    }
+    else{
+      console.log("no message"); 
+    }
+
+  }
+
   sendData(){
+  
   this.fullMessage.name = localStorage.getItem('username')!;
   this.fullMessage.message = this.incoming;  
   
@@ -36,8 +73,9 @@ export class ChatroomComponent implements OnInit {
 getData(){
   this.incoming = ""; 
   this.service.getMessages().subscribe(res => {
-    this.messages = res; 
-    this.messageArray = this.messages; 
+    console.log(res);  
+    this.messageArray = res;
+    this.oldMsgs = this.messageArray;  
   })
 }
 

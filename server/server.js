@@ -9,6 +9,19 @@ var http = require('http').Server(app);
 const MongoClient = require('mongodb').MongoClient; 
 const url = 'mongodb://localhost:27017'; 
 
+const io = require('socket.io')(http,{
+    cors: {
+        origin: "http://localhost:4200",
+        methods:["GET", "POST"]
+    }   
+});
+
+const sockets = require('./socket.js'); 
+
+const PORT = 3000; 
+app.use(cors()); 
+sockets.connect(io, PORT); 
+
 let server = http.listen(3000, function() {
     let host = server.address().address;
     let port = server.address().port;
