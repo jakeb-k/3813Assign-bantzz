@@ -12,7 +12,7 @@ app.post('/api/users', function(req,res){
         collection.insertOne(user,(err, dbres)=>{
             if (err) throw err;
             let num = dbres.insertedCount; 
-            res.send({'num':num, err:null}); 
+            res.send(true); 
             console.log('user inserted'); 
         }); 
         /* for(i in data){

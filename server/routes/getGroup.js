@@ -15,26 +15,24 @@ function jsonReader(filePath, cb){
 }
 
 
-module.exports = function(req, res){          
-    groupNames = [];
-    groupList = {
+module.exports = function(db, app){
+
+app.post('/api/groups',function(req, res){          
+    var groupNames = [];
+    var groupList = {
         "groupNames": []
     }
-    jsonReader('./data/groups.json', (err, data)=>{
-    if(err){
-        console.log(err);
-    } else {
-        username = req.body.username; 
-        for(i in data){ 
-            if(data[i].users.includes(username)){
-                //console.log(data[i].users)
-                groupNames.push(data[i].name); 
-                
+        const collection = db.collection('groups');
+        collection.find({}).toArray((err,data)=>{
+            var username = req.body.username; 
+            for(i in data){ 
+                if(data[i].users.includes(username)){
+                    groupNames.push(data[i].name); 
+                }
             }
-        }
-        console.log(groupNames);
-        groupList.groupNames = groupNames; 
-        res.send(groupList); 
-        }
+             groupList.groupNames = groupNames; 
+            res.send(groupList);
+        }); 
+       
     });
-};
+}

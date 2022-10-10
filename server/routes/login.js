@@ -21,7 +21,6 @@ app.post('/api/login',function(req,res){
     //console.log(req.body); 
         const collection = db.collection('users');
         collection.find({}).toArray((err,data)=>{ 
-        console.log(data); 
         for(i in data){
             if(req.body.name === data[i].name && req.body.password === data[i].password) {
                 //console.log(data[i].name + data[i].password); 
