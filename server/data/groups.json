@@ -1,0 +1,68 @@
+[
+  {
+    "name": "group1",
+    "users": [
+      "superuser",
+      "user2",
+      "user3"
+    ],
+    "admins": [
+      "superuser",
+      "admin2"
+    ],
+    "assis": [
+      "assis1"
+    ]
+  },
+  {
+    "name": "group2",
+    "users": [
+      "superuser",
+      "user5",
+      "user6"
+    ],
+    "admins": [
+      "admin3",
+      "admin4"
+    ],
+    "assis": [
+      "superuser"
+    ]
+  },
+  {
+    "name": "anothergroup",
+    "users": [
+      "jakebk",
+      "t",
+      "t",
+      "t"
+    ],
+    "admins": [
+      "a",
+      "a",
+      "a",
+      "a"
+    ],
+    "assis": [
+      "as",
+      "as",
+      "as",
+      "as"
+    ]
+  },
+  {
+    "name": "new group",
+    "users": [
+      "user",
+      "penis",
+      "cock"
+    ],
+    "admins": [
+      "admin1"
+    ],
+    "assis": [
+      "assis1",
+      "assi2"
+    ]
+  }
+]
