@@ -19,6 +19,8 @@ const io = require('socket.io')(http,{
 const sockets = require('./socket.js'); 
 
 const PORT = 3000; 
+
+
 app.use(cors()); 
 sockets.connect(io, PORT); 
 
@@ -38,13 +40,6 @@ app.use(express.json());
 
 app.use(express.static('C:/Users/jknow/OneDrive/Desktop/Year_4/TRI_2/3813ICT-Software_Frameworks/Assignment-1/chatRoom/bantz-project/dist/bantz-project'));
 
-
-//app.post('/api/login', require('./routes/login'));
-//app.get('/api/users', require('./routes/getUsers')); 
-//app.post('/api/deleteUser', require('./routes/deleteUser'));
-//app.post('/api/users', require('./routes/addUser')); 
-//app.post('/api/makeGroup', require('./routes/addGroup')); 
-//app.post('/api/groups', require('./routes/getGroup')); 
 
 MongoClient.connect(url, function(err, client){
     if(err) {return console.log(err)}

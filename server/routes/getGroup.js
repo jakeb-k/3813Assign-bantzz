@@ -1,19 +1,3 @@
-var fs =  require('fs'); 
-
-function jsonReader(filePath, cb){
-    fs.readFile(filePath, 'utf-8', (err, fileData)=>{
-        if(err){
-            return cb && cb(err);
-        }
-        try {
-            const object = JSON.parse(fileData);
-            return cb && cb(null, object);
-        } catch(err){
-            return cb && cb(err); 
-        }
-    });
-}
-
 
 module.exports = function(db, app){
 
@@ -30,7 +14,7 @@ app.post('/api/groups',function(req, res){
                     groupNames.push(data[i].name); 
                 }
             }
-             groupList.groupNames = groupNames; 
+            groupList.groupNames = groupNames; 
             res.send(groupList);
         }); 
        

@@ -70,6 +70,7 @@ export class ChatroomComponent implements OnInit {
 })
   this.getData(); 
 }
+
 getData(){
   this.incoming = ""; 
   this.service.getMessages().subscribe(res => {
