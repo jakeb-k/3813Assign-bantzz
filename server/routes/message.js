@@ -1,7 +1,6 @@
 
-var userMessages = []; 
-var msgCount;
-
+//sends the incoming messages into the database to be stored 
+//for future use
 module.exports = function(db, app){
 
 app.post('/api/message', function(req, res){

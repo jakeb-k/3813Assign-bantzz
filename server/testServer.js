@@ -39,7 +39,7 @@ app.use(express.json());
 
 
 app.use(express.static('C:/Users/jknow/OneDrive/Desktop/Year_4/TRI_2/3813ICT-Software_Frameworks/Assignment-1/chatRoom/bantz-project/dist/bantz-project'));
-
+//exports mongo client to allow for testing
 module.exports = function() {
 MongoClient.connect(url, function(err, client){
     if(err) {return console.log(err)}

@@ -1,4 +1,6 @@
-
+//called when the app requests a user to be deleted
+//checks that there is valid input before 
+//finding that instance in the database and deleting it
 module.exports =  function(db,app){
 
     app.post('/api/deleteUser', function(req, res) {

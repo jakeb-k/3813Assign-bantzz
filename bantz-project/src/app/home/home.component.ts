@@ -11,6 +11,7 @@ import { LoginService } from '../login.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+    
     username = String("") ;  
     userpassword = String("");
 
@@ -20,15 +21,15 @@ export class HomeComponent implements OnInit {
     }
   
 
-
+  
 
   constructor( private route:ActivatedRoute, private router:Router, private  http : HttpClient, private service: LoginService) { }
 
   ngOnInit(): void {
   }
- 
-  checkDetails() {
-    if(this.username != "" && this.userpassword != ""){
+ //checks that there is valid input when a user enters login details
+  checkDetails(name, pass) {
+    if(name != "" &&  pass != ""){
       return true;
 
     } else {
@@ -36,12 +37,13 @@ export class HomeComponent implements OnInit {
       return false; 
     }
   }
+  //routes the account component
   navby() {
     this.router.navigate(['/account']); 
   }
-
+  //sends the users details to the server to be checked if they are valid
   sendData(){
-    if(this.checkDetails() == true) {
+    if(this.checkDetails(this.username, this.userpassword) == true) {
         this.userDetails.name = this.username;
         this.userDetails.password = this.userpassword; 
         console.log(this.userDetails); 

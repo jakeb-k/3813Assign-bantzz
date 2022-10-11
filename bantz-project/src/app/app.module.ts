@@ -29,7 +29,7 @@ import { GroupComponent } from './group/group.component';
     HttpClientModule, 
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

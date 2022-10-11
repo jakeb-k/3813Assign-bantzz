@@ -32,6 +32,9 @@ export class ChatroomComponent implements OnInit {
     this.getData();  
 
   }
+  //used to init the connection to the socket
+  //and update the messages sent from the chatroom into an 
+  //an array of all the messages
   private initIoConnection(){
     const usedName = String(this.username); 
     this.socketService.initSocket(); 
@@ -43,6 +46,8 @@ export class ChatroomComponent implements OnInit {
     
   }
 
+  //used to update the chatroom with messages and send those messages
+  //to the server
   public chat(){
     if(this.messagecontent){
       const usedName = String(this.username); 
@@ -58,7 +63,8 @@ export class ChatroomComponent implements OnInit {
     }
 
   }
-
+  //is called in the chat function but this is the code
+  //responsible for sending the chat message to the server
   sendData(){
   
   this.fullMessage.name = localStorage.getItem('username')!;
@@ -70,7 +76,8 @@ export class ChatroomComponent implements OnInit {
 })
   this.getData(); 
 }
-
+//called after data is sent to update the new messages in the chat
+//called on init of the component to load the previous messages
 getData(){
   this.incoming = ""; 
   this.service.getMessages().subscribe(res => {

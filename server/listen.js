@@ -1,3 +1,4 @@
+//sends message to console stating when the port has started and what the port is
 module.exports = {
     listen: function(app, PORT){
         app.listen(PORT, ()=>{

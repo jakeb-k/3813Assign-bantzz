@@ -1,5 +1,8 @@
 
-
+//function that receives input from app and 
+//formats it into arrays that allow for
+//insertion into the database
+//will return true once the details are formatted and submitted
 module.exports =  function(db, app){
 
 app.post('/api/makeGroup',function(req,res){

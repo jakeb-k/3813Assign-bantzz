@@ -36,14 +36,14 @@ export class AdminComponent implements OnInit {
   ngOnInit(): void {
     this.getData(); 
   }
-
+  //gets all the current users and returns in an array
   getData(){
   this.service.getUsers().subscribe(res => {
     this.users = res; 
     this.userArray = this.users; 
-    console.log(this.userArray); 
   })
 }
+//checks that the input entered is valid and not empty
 checkDetails() {
     if(this.username != "" && this.userpassword != ""){
       return true;
@@ -53,6 +53,8 @@ checkDetails() {
       return false; 
     }
   }
+  //sends the user data to be checked to see if has been used
+  //if not it will create the user
 sendData(){
     if(this.checkDetails() == true) {
         this.userDetails.name = this.username;
@@ -73,7 +75,8 @@ sendData(){
       }); 
     }
   }
-
+  //used to check that users have been entered for a group
+  //will then get input and send to server to create a new group
   makeGroup(){
     if(this.newUsers == ""){
       alert("Enter at least one user"); 
@@ -92,6 +95,8 @@ sendData(){
       }); 
     }
   }
+  //checks a user has been entered to be deleted 
+  //sends that name to the server where it will then be deleted
   deleteUser(){
     if(this.dUsername == ""){
       alert("Enter a user to be deleted!");  

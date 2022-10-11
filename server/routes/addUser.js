@@ -1,5 +1,5 @@
 
-
+//is called when a new user is being inserted into the database
 module.exports = function(db, app) {
 
 app.post('/api/users', function(req,res){

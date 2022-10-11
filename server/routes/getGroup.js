@@ -1,4 +1,5 @@
-
+//returns all group names that contain the current user
+//in the users, admins or assis of that group
 module.exports = function(db, app){
 
 app.post('/api/groups',function(req, res){          

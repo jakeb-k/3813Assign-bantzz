@@ -4,19 +4,22 @@ var group = require('./testGetGroup.js');
 var dUser = require('./testDelete.js'); 
 let chai = require('chai'); 
 
-
+//contains all unit tests for route functions
 
 describe('Unit Testing for login function', ()=>{
+    //checks that false will return if user is not matching
     describe('Test Case 1 for #login', ()=> {
         it('should return false when the username is not matching', ()=> {
             asset.equal(login("notmatching", "password"), false); 
         })
     });
+    //checks that false will return if password is not matching
     describe('Test Case 2 for #login', ()=> {
         it('should return false when the password is not matching', ()=> {
             asset.equal(login("user", "notmatching"), false); 
         })
     });
+    //checks that false will return when input is numeric
     describe('Test Case 3 for #login', ()=> {
         it('should return false when the inputs are numeric', ()=> {
             asset.equal(login(0, 0), false); 

@@ -1,4 +1,4 @@
-
+//server file that inits all required modules within it
 
 const cors = require('cors');
 var express = require('express');
@@ -37,10 +37,10 @@ app.use(cors());
 app.use(express.json()); 
 
 
-
+//call of static build file that links the angular app to the server
 app.use(express.static('C:/Users/jknow/OneDrive/Desktop/Year_4/TRI_2/3813ICT-Software_Frameworks/Assignment-1/chatRoom/bantz-project/dist/bantz-project'));
 
-
+//mongodb client is called here with the routes used
 MongoClient.connect(url, function(err, client){
     if(err) {return console.log(err)}
     const dbName = 'bantzdb';

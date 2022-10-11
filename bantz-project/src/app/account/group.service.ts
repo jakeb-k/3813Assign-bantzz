@@ -8,6 +8,8 @@ export class GroupService {
   
   constructor(private http: HttpClient) { }
 
+
+  //post request to server to return all groups that contain the current user
   getGroupData(){
     var username = localStorage.getItem('username');
     var nameSend = {

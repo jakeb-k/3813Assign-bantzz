@@ -19,17 +19,20 @@ export class AccountComponent implements OnInit {
     this.getGroups(); 
   }
   
+  //function used to send user back to login 
   navhome() {
     localStorage.clear(); 
 
     this.router.navigate(['//']); 
   }
+  //used to check if the user is the superuser
   checkSuperUser(){
     if(this.name == "superuser"){
       this.isSuper = true; 
       console.log(this.isSuper); 
     }
   }
+  //used to get all the group names the current user is in
   getGroups(){
     this.service.getGroupData().subscribe((response:any)=>{
         this.groupNames = response.groupNames;
@@ -37,6 +40,7 @@ export class AccountComponent implements OnInit {
         //console.log(this.groupNames); 
       }); 
   }
+  //settings the groupname that is clicked into local storage
   setGroupName(){
     
     localStorage.setItem('group',this.currentName );

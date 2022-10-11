@@ -1,3 +1,5 @@
+
+//tells console when a user has joined a chatroom on the specific socket
 module.exports = {
     connect:function(io, PORT){
         io.on('connection', (socket)=>{
